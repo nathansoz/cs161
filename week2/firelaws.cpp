@@ -73,7 +73,6 @@ int main()
 		if(underflow == 1)
 		{
 			cout << "You can invite " << underflow << " more guest." << endl;
-			
 		}
 		else
 		{
