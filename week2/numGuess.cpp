@@ -72,7 +72,7 @@ int main()
 
         cout << "Player 2: Please guess the number that player 1 chose." << endl;
 
-        for (int i = 0; i < NUM_GUESSES; ++i)
+        for (int i = 0; i < NUM_GUESSES; i++)
         {
             int guess = MIN_NUMBER - 1;
             int remainingGuesses = NUM_GUESSES - i;
@@ -80,7 +80,7 @@ int main()
             cout << "You have " << remainingGuesses << " guesses remaining." << endl;
             cout << "Please choose a number between " << lowerBound << " and " << upperBound << ".\n";
 
-
+            //TODO: Need to store closest number and display it
             while(outOfBounds(guess, lowerBound, upperBound))
             {
                 cout << "(" << lowerBound << " - " << upperBound << "): ";
