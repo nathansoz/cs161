@@ -25,6 +25,7 @@
  */
 
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -69,13 +70,16 @@ int main()
         int lowerBound = MIN_NUMBER;
         int upperBound = MAX_NUMBER;
         bool numGuessed = false;
+        int closestGuess = -1;
 
         cout << "Player 2: Please guess the number that player 1 chose." << endl;
 
         for (int i = 0; i < NUM_GUESSES; i++)
         {
+
             int guess = MIN_NUMBER - 1;
             int remainingGuesses = NUM_GUESSES - i;
+
 
             cout << "You have " << remainingGuesses << " guesses remaining." << endl;
             cout << "Please choose a number between " << lowerBound << " and " << upperBound << ".\n";
@@ -96,11 +100,35 @@ int main()
             {
                 cout << "Your guess was too low!" << endl;
                 lowerBound = guess + 1;
+
+                if(closestGuess == -1)
+                {
+                    closestGuess = guess;
+                }
+                else
+                {
+                    if(abs(magicNumber - closestGuess) > abs(magicNumber - guess))
+                    {
+                        closestGuess = guess;
+                    }
+                }
             }
             else if(guess > magicNumber)
             {
                 cout << "Your guess was too high!" << endl;
                 upperBound = guess - 1;
+
+                if(closestGuess == -1)
+                {
+                    closestGuess = guess;
+                }
+                else
+                {
+                    if(abs(magicNumber - closestGuess) > abs(magicNumber - guess))
+                    {
+                        closestGuess = guess;
+                    }
+                }
             }
             else
             {
@@ -113,6 +141,7 @@ int main()
         if(!numGuessed)
         {
             cout << "Player 2 lost. Player 1 had number " << magicNumber << endl;
+            cout << "Player 2's closest guess was " << closestGuess << endl;
         }
 
         cout << "Enter 'y' to play again: ";
