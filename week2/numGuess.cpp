@@ -84,7 +84,6 @@ int main()
             cout << "You have " << remainingGuesses << " guesses remaining." << endl;
             cout << "Please choose a number between " << lowerBound << " and " << upperBound << ".\n";
 
-            //TODO: Need to store closest number and display it
             while(outOfBounds(guess, lowerBound, upperBound))
             {
                 cout << "(" << lowerBound << " - " << upperBound << "): ";
