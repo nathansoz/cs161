@@ -84,7 +84,7 @@ void PrintReformattedName(char name[])
             lastName[tmpLen + 1] = '\0';
         }
 
-        cout << lastName << ", " << firstName << " " << middleName;
+        cout << lastName << ", " << firstName << " " << middleName << endl;
     }
 
     //Otherwise I will make the assumption that only a first and last name were entered.
@@ -105,7 +105,7 @@ void PrintReformattedName(char name[])
             lastName[tmpLen + 1] = '\0';
         }
 
-        cout << lastName << ", " << firstName;
+        cout << lastName << ", " << firstName << endl;
     }
 }
 
