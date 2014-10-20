@@ -29,6 +29,7 @@ int main()
     // this loop will always produce the same results (on the same computer) because it uses the same seed
     // a better program would use the line that is commented out below:
     // srand(time(NULL));
+
     for (int i = 0; i < 10; i++)
     {
         cout << rand() << endl;
