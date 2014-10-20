@@ -84,6 +84,13 @@ void PrintReformattedName(char name[])
             lastName[tmpLen + 1] = '\0';
         }
 
+        // Finally, add a period to the middle name if it is only one character
+        if(strlen(middleName) == 1)
+        {
+            middleName[1] ='.';
+            middleName[2] = '\0';
+        }
+
         cout << lastName << ", " << firstName << " " << middleName << endl;
     }
 
