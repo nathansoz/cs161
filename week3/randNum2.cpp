@@ -74,7 +74,7 @@ int main()
     // the modulo operator. From there we just add the lowerBound to get us in the right range.
 
     int randomNumber = rand() % ((upperBound - lowerBound) + 1) + lowerBound;
-    cout << randomNumber;
+    cout << randomNumber << endl;
 
 
     return 0;
