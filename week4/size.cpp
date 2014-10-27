@@ -85,18 +85,18 @@ int main()
         double height;
         int age;
 
-        cout << "Please enter your weight: ";
+        cout << "Please enter your weight (lbs): ";
         cin >> weight;
 
-        cout << "Please enter your height: ";
+        cout << "Please enter your height (inches): ";
         cin >> height;
 
-        cout << "Please enter your age: ";
+        cout << "Please enter your age (whole number): ";
         cin >> age;
 
         //functions can be embedded in cout
-        cout << "Your hat size is " << hatSize(weight, height) << ". Your jacket size is " << jacketSize(weight, height, age) <<
-                ". Your waist size is: " << waistSize(weight, age) << "." << endl << endl;
+        cout << "Your hat size is " << hatSize(weight, height) << " inches. Your jacket size is " << jacketSize(weight, height, age) <<
+                " inches. Your waist size is: " << waistSize(weight, age) << " inches." << endl << endl;
 
         cout << "Run again? (y/n): ";
         cin >> runAgain;
