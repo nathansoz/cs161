@@ -39,7 +39,14 @@ double hatSize(double weight, double height)
 double jacketSize(double weight, double height, int age)
 {
     int adjustmentFactor = ((age - 29) / 10);
-    double adjustment = static_cast<double>(adjustmentFactor) * JACKET_SIZE_ADJ_CONST;
+    if(adjustmentFactor <= 0)
+    {
+        double adjustment = 0;
+    }
+    else
+    {
+        double adjustment = static_cast<double>(adjustmentFactor) * JACKET_SIZE_ADJ_CONST;
+    }
     double jacketSize = ((height * weight) / JACKET_SIZE_CONST) + adjustment;
 
     return jacketSize;
@@ -48,7 +55,14 @@ double jacketSize(double weight, double height, int age)
 double waistSize(double weight, int age)
 {
     int adjustmentFactor = ((age - 28) / 2);
-    double adjustment = static_cast<double>(adjustmentFactor) * WAIST_SIZE_ADJ_CONST;
+    if(adjustmentFactor <= 0)
+    {
+        double adjustment = 0;
+    }
+    else
+    {
+        double adjustment = static_cast<double>(adjustmentFactor) * WAIST_SIZE_ADJ_CONST;
+    }
     double waistSize = (weight / WAIST_SIZE_CONST) + adjustment;
 
     return waistSize;
