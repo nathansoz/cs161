@@ -38,6 +38,8 @@ double hatSize(double weight, double height)
 
 double jacketSize(double weight, double height, int age)
 {
+    //we can use int properties (which round down) to figure out how to find an ajustment factor
+
     double adjustment;
 
     int adjustmentFactor = ((age - 29) / 10);
@@ -92,6 +94,7 @@ int main()
         cout << "Please enter your age: ";
         cin >> age;
 
+        //functions can be embedded in cout
         cout << "Your hat size is " << hatSize(weight, height) << ". Your jacket size is " << jacketSize(weight, height, age) <<
                 ". Your waist size is: " << waistSize(weight, age) << "." << endl << endl;
 

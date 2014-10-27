@@ -29,6 +29,9 @@ const int GUESS_NUM = 10;
 
 bool alreadyGuessed(char guess, char (&guesses)[GUESS_NUM])
 {
+    //checks to see if a letter has already been guessed
+    //returns true or false
+
     for(int i = 0; i < GUESS_NUM; i++)
     {
         if(guesses[i] == guess && guesses[i] != 0)
@@ -42,6 +45,9 @@ bool alreadyGuessed(char guess, char (&guesses)[GUESS_NUM])
 
 bool isAlphaString(string verify)
 {
+    //checks to see if the string our player 1 enters is alpha only
+    //returns true or false
+
     bool alpha = true;
 
     for(int i = 0; i < verify.length(); i++)
@@ -57,6 +63,10 @@ bool isAlphaString(string verify)
 
 bool userWon(string verify, char (&guesses)[GUESS_NUM])
 {
+    //function to see if our user has won the game yet
+    //returns true or false
+    //this checks the number of correct guessed characters verses the number of unique letters
+
     int correctGuesses = 0;
 
     for(int i = 0; i < GUESS_NUM; i++)
@@ -85,12 +95,14 @@ int main()
 {
     char playAgain = 'n';
 
-    do {
+    do
+    {
         string secretWord;
         bool won = false;
         int num_guesses = 0;
 
-        do {
+        do
+        {
             secretWord = "";
 
             cout << "Please enter a word (no numbers): ";
@@ -99,37 +111,46 @@ int main()
         }
         while (!isAlphaString(secretWord));
 
+        //only works on *nix (macros for win/linux?)
         system("clear");
 
         char guesses[GUESS_NUM] = {0};
 
-        while (num_guesses < GUESS_NUM) {
+        while (num_guesses < GUESS_NUM)
+        {
             bool boolAlreadyGuessed = false;
 
             char guess;
 
             cout << "The word currently looks like: ";
-            for (int i = 0; i < secretWord.length(); i++) {
+            for (int i = 0; i < secretWord.length(); i++)
+            {
                 bool letterMatch = false;
 
-                for (int j = 0; j < GUESS_NUM; j++) {
-                    if (secretWord.at(i) == guesses[j]) {
+                for (int j = 0; j < GUESS_NUM; j++)
+                {
+                    if (secretWord.at(i) == guesses[j])
+                    {
                         letterMatch = true;
                         cout << guesses[j] << " ";
                     }
                 }
 
-                if (!letterMatch) {
+                if (!letterMatch)
+                {
                     cout << "_ ";
                 }
             }
 
             cout << endl;
 
-            if (num_guesses > 0) {
+            if (num_guesses > 0)
+            {
                 cout << "You already have guessed: ";
-                for (int i = 0; i < GUESS_NUM; i++) {
-                    if (guesses[i] != 0) {
+                for (int i = 0; i < GUESS_NUM; i++)
+                {
+                    if (guesses[i] != 0)
+                    {
                         cout << guesses[i] << " ";
                     }
                 }
@@ -142,15 +163,18 @@ int main()
 
             boolAlreadyGuessed = alreadyGuessed(guess, guesses);
 
-            if (boolAlreadyGuessed) {
+            if (boolAlreadyGuessed)
+            {
                 cout << "You already guessed that letter:" << endl;
                 continue;
             }
-            else {
+            else
+            {
                 guesses[num_guesses] = guess;
             }
 
-            if (userWon(secretWord, guesses)) {
+            if (userWon(secretWord, guesses))
+            {
                 num_guesses++;
                 cout << "You won with " << num_guesses << " guesses!" << endl;
                 won = true;
@@ -161,10 +185,12 @@ int main()
             system("clear");
         }
 
-        if (!won) {
+        if (!won)
+        {
             cout << "You didn't win! The secret word is: " << secretWord << endl;
         }
-        else {
+        else
+        {
             cout << "The secret word is: " << secretWord << endl;
         }
 
@@ -174,4 +200,6 @@ int main()
 
     }
     while(playAgain == 'y');
+
+    return 0;
 }

@@ -69,4 +69,6 @@ int main()
         tryAgain = tolower(tryAgain);
     }
     while(tryAgain == 'y');
+
+    return 0;
 }
