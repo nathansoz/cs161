@@ -1,5 +1,4 @@
 #include <iostream>
-#include <sys/time.h>
 
 using namespace std;
 
@@ -59,7 +58,7 @@ int main()
     sequence[0] = 1;
     sequence[1] = 1;
 
-    cout << "Starting efficient calculation.. " << endl;
+    cout << "Starting efficient calculation... " << endl;
     cout << fibEfficient(fibNumber, sequence) << endl;
 
 
