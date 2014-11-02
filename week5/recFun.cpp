@@ -1,3 +1,24 @@
+/* Author: Nathan Sosnovske
+ *
+ * Created: 11/1/2014
+ *
+ * Edited: 11/1/2014
+ *
+ * Files: recFun.cpp
+ *
+ * Overview:
+ *      Generates nth number of fibonacci sequence.
+ *
+ * Input:
+ *     One int
+ *
+ * Output:
+ *
+ *      Nth number of fibonacci sequence (2x), one calculated slow and one calculated fast.
+ *
+ *
+ */
+
 #include <iostream>
 
 using namespace std;
