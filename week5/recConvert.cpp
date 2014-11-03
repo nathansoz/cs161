@@ -1,3 +1,28 @@
+/* Author: Nathan Sosnovske
+ *
+ * Created: 11/1/2014
+ *
+ * Edited: 11/2/2014
+ *
+ * Files: recConvert.cpp
+ *
+ * Overview:
+ *      Either:
+ *        - Converts a decimal to a binary number
+ *        - Converts a binary to a decimal number
+ *        - Exits
+ *
+ * Input:
+ *      - Menu selection
+ *      - Binary/decimal number
+ *
+ * Output:
+ *
+ *      - decimal/binary number
+ *
+ *
+ */
+
 #include <iostream>
 #include <string>
 #include <stdlib.h>
