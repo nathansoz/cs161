@@ -23,12 +23,15 @@
 
 using namespace std;
 
+//we pass in &timesRun, because it is easier to use in a recursive function
 void hailstone(int n, int &timesRun)
 {
+    //cout statments allow us to print the sequence
+
     if(n == 1)
     {
         cout << n << endl;
-        //break
+        //break out of recursion
     }
     else
     {

@@ -25,6 +25,8 @@ using namespace std;
 
 int fib(int n)
 {
+    // I think I calculated this as 90x less efficient than the method below when n==30
+
     if(n > 1)
     {
         return fib(n - 1) + fib(n - 2);
@@ -62,12 +64,14 @@ int main()
 
     int fibNumber;
 
+    //over 46 causes overflow
     cout << "Please enter the number of the sequence that you want (1-46 only): ";
     cin >> fibNumber;
 
     cout << "Starting inefficient calculation... (you will see the difference as n gets higher) " << endl;
     cout << fib(fibNumber) << endl;
 
+    //Here is where I set up the more efficient calculation
     //Create int array to hold previous fib values
     //This is orders of magnitude more efficient.
     int sequence[fibNumber];

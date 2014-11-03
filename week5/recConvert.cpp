@@ -44,6 +44,7 @@ int convertBinaryToDecimal(string binary)
         }
         else
         {
+
             binary.erase(binary.begin());
             return convertBinaryToDecimal(binary);
         }
@@ -56,6 +57,9 @@ int convertBinaryToDecimal(string binary)
         }
         else
         {
+            //This is kinda a dumb way to do this converson.
+            //Basically, I check the number, find out its base, and erase it, passing the string on each time.
+
             int len = binary.length();
             binary.erase(binary.begin());
             decimal = (pow(2, (len - 1))) + convertBinaryToDecimal(binary);
@@ -68,7 +72,7 @@ int convertBinaryToDecimal(string binary)
 
 void convertDecimalToBinary(int decimal, string &appendString)
 {
-
+    //Divides by 2 until we get to 0, then takes the remainders and assembles a correctly ordered binary string
     if ((decimal / 2) != 0)
     {
         convertDecimalToBinary(decimal / 2, appendString);
@@ -85,6 +89,7 @@ bool validateBinaryNumber(string validate)
 {
     for(int x = 0; x < validate.length(); x++)
     {
+        //All numbers must be 0 or 1
         if(validate.at(x) == '0' || validate.at(x) == '1')
         {
             continue;
@@ -199,4 +204,5 @@ int main()
     }
     while(true); //the user will always exit using the menu system.
 
+    return 0; // not really needed, but put it here for stylistic reasons
 }
