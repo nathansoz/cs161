@@ -72,16 +72,23 @@ int main()
 {
 
     srand(time(NULL));
+
     string mixMe;
+    char runAgain = 'n';
 
     cout << "Please enter a string to be mixed: ";
     getline(cin, mixMe);
-    for(int x = 0; x < 5; x++) {
+
+    do
+    {
 
         char mixCString[mixMe.length()];
         char mixedString[mixMe.length()];
         stringToCString(mixMe, mixCString);
         mixString(mixCString, mixedString);
-        cout << mixedString << endl;
+        cout << mixedString << endl << endl;
+        cout << "Generate another random iteration? (y/n): ";
+        cin >> runAgain;
     }
+    while(runAgain == 'y');
 }
