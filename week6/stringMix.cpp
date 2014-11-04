@@ -68,10 +68,10 @@ int main()
 {
 
     srand(time(NULL));
-    string mixMe = "Hello";
+    string mixMe;
 
-    //cout << "Please enter a string to be mixed: ";
-    //getline(cin, mixMe);
+    cout << "Please enter a string to be mixed: ";
+    getline(cin, mixMe);
 
     for(int x = 0; x < 5; x++) {
 
