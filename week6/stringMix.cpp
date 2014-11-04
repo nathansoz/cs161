@@ -22,7 +22,7 @@ void mixString(char stringToMix[], char mixedString[])
 
         do
         {
-            srand(time(NULL));
+
             randomNumber = rand_int(0, lengthOfString - 1);
 
         }
@@ -74,6 +74,7 @@ int main()
     //getline(cin, mixMe);
 
     for(int x = 0; x < 5; x++) {
+        srand(time(NULL));
         char mixCString[mixMe.length()];
         char mixedString[mixMe.length()];
         stringToCString(mixMe, mixCString);
