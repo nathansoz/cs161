@@ -22,9 +22,7 @@ void mixString(char stringToMix[], char mixedString[])
 
         do
         {
-
             randomNumber = rand_int(0, lengthOfString - 1);
-
         }
         while(NumberInArray(randomNumber, randomNumbers, lengthOfString));
 
