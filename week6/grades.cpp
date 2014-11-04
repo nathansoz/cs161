@@ -32,8 +32,8 @@ int main()
     {
         string input;
         cout << "Grade: ";
-        //cin >> input;
-        input = "1";
+        cin >> input;
+
         if(input == "exit")
         {
             printGrades(gradeArray, NUM_GRADE_COLUMNS);
