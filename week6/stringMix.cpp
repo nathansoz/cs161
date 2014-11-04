@@ -29,6 +29,8 @@ void mixString(char stringToMix[], char mixedString[])
         while(NumberInArray(randomNumber, randomNumbers, lengthOfString));
 
         mixedString[x] = stringToMix[randomNumber];
+
+        mixedString[lengthOfString] = '\0';
         randomNumbers[x] = randomNumber;
     }
 }
@@ -55,12 +57,14 @@ int rand_int(int min, int max)
     return randomNumber;
 }
 
-void stringToCString(string input, char output[])
+void stringToCString(string input, char* output)
 {
     for(int x = 0; x < input.length(); x++)
     {
         output[x] = input.at(x);
     }
+
+    output[input.length()] = '\0';
 
 }
 
@@ -72,7 +76,6 @@ int main()
 
     cout << "Please enter a string to be mixed: ";
     getline(cin, mixMe);
-
     for(int x = 0; x < 5; x++) {
 
         char mixCString[mixMe.length()];
