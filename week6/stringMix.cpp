@@ -67,14 +67,14 @@ void stringToCString(string input, char output[])
 int main()
 {
 
-
+    srand(time(NULL));
     string mixMe = "Hello";
 
     //cout << "Please enter a string to be mixed: ";
     //getline(cin, mixMe);
 
     for(int x = 0; x < 5; x++) {
-        srand(time(NULL));
+
         char mixCString[mixMe.length()];
         char mixedString[mixMe.length()];
         stringToCString(mixMe, mixCString);
