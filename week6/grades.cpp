@@ -57,7 +57,7 @@ int main()
             }
             else
             {
-                cout << "Invalid grade number. Please enter a number between 0 and " << NUM_GRADE_COLUMNS << endl;
+                cout << "Invalid grade number. Please enter a number between 0 and " << (NUM_GRADE_COLUMNS - 1) << endl;
                 continue;
             }
         }
