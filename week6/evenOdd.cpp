@@ -62,7 +62,7 @@ int main()
 
     int difference = calculateEvenOddDifference(calcArray, size);
 
-    cout << "The difference of the even numbers and odd numbers is: " << difference;
+    cout << "The difference of the even numbers and odd numbers is: " << difference << endl;
 
     return 0;
 }
