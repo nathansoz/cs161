@@ -101,21 +101,6 @@ string StringToLower(string possibleCaps)
     return loweredString;
 }
 
-bool ValidNumber(string numString, long* number)
-{
-    char* stopped;
-    *number = strtol(numString.c_str(), &stopped, 10);
-
-    if(stopped >= (numString.c_str() + numString.length()))
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
 int main()
 {
     string target;
@@ -123,8 +108,8 @@ int main()
     bool runAgain = true;
 
     cout << "Please enter a string: ";
-    //getline(cin, target);
-    target = "hello";
+    getline(cin, target);
+
 
     char targetCString[target.length()];
     stringToCString(target, targetCString);
@@ -135,12 +120,13 @@ int main()
         do
         {
             cout << "Please enter a command: ";
-            //cin >> command;
-            command = "R5";
+            cin >> command;
+
 
             if(command.length() < 2)
             {
                 cout << "Invalid command!" << endl;
+                cout << "Your string: " << targetCString << endl;
             }
         }
         while(command.length() < 2);
@@ -156,37 +142,39 @@ int main()
         }
         else
         {
-            switch (toupper(command.at(0)))
-            {
-                case 'L':
-                    long* leftSpace;
-                    command.erase(command.begin());
+            if(toupper(command.at(0)) == 'L') {
+                long* space;
+                char* stopped;
+                command.erase(command.begin());
+                long numSpace = strtol(command.c_str(), &stopped, 10);
+                if (stopped >= (command.c_str() + command.length())) {
+                    ShiftLeft(targetCString, numSpace);
+                    cout << "New string: " << targetCString << endl;
+                }
+                else {
+                    cout << "Invalid left number!" << endl;
+                    cout << "Your string: " << targetCString << endl;
+                }
+            }
+            else if (toupper(command.at(0)) == 'R') {
+                long* space;
+                char* stopped;
+                command.erase(command.begin());
+                long numSpace = strtol(command.c_str(), &stopped, 10);
+                if (stopped >= (command.c_str() + command.length())) {
+                    ShiftRight(targetCString, numSpace);
+                    cout << "New string: " << targetCString << endl;
+                }
+                else {
+                    cout << "Invalid right number!" << endl;
+                    cout << "Your string: " << targetCString << endl;
 
-                    if(ValidNumber(command, leftSpace))
-                    {
-                        ShiftLeft(targetCString, *leftSpace);
-                        cout << "New string: " << targetCString << endl;
-                    }
-                    else
-                    {
-                        cout << "Invalid left number!" << endl;
-                    }
-                    break;
-                case 'R':
-                    long* rightSpace;
-                    command.erase(command.begin());
-                    if(ValidNumber(command, rightSpace))
-                    {
-                        ShiftRight(targetCString, *rightSpace);
-                        cout << "New string: " << targetCString << endl;
-                    }
-                    else
-                    {
-                        cout << "Invalid right number!" << endl;
-                    }
-                    break;
-                default:
-                    cout << "Invalid command!";
+                }
+            }
+            else
+            {
+                cout << "Invalid command!" << endl;
+                cout << "Your string: " << targetCString << endl;
             }
         }
     }
