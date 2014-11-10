@@ -139,8 +139,12 @@ int main()
 
     bool runAgain = true;
 
-    cout << "Please enter a string: ";
-    getline(cin, target);
+    do
+    {
+        cout << "Please enter a string: ";
+        getline(cin, target);
+    }
+    while(target.length() < 1);
 
 
     char targetCString[target.length()];
