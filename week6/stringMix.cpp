@@ -1,3 +1,24 @@
+/* Author: Nathan Sosnovske
+ *
+ * Created: 11/9/2014
+ *
+ * Edited: 11/9/2014
+ *
+ * Files: stringMix.cpp
+ *
+ * Overview:
+ *      Takes a string and mixes it up.
+ *
+ * Input:
+ *      One string.
+ *
+ * Output:
+ *
+ *      Mixed string.
+ *
+ *
+ */
+
 #include <iostream>
 #include <string>
 #include <string.h>

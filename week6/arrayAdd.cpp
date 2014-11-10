@@ -1,3 +1,24 @@
+/* Author: Nathan Sosnovske
+ *
+ * Created: 11/9/2014
+ *
+ * Edited: 11/9/2014
+ *
+ * Files: arrayAdd.cpp
+ *
+ * Overview:
+ *      Adds two arrays of a given length.
+ *
+ * Input:
+ *      One int (length of array), n number of ints x 2, for each array.
+ *
+ * Output:
+ *
+ *      n number of ints, totalled.
+ *
+ *
+ */
+
 #include <iostream>
 
 using namespace std;

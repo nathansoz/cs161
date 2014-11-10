@@ -1,3 +1,25 @@
+/* Author: Nathan Sosnovske
+ *
+ * Created: 11/9/2014
+ *
+ * Edited: 11/9/2014
+ *
+ * Files: wordShift.cpp
+ *
+ * Overview:
+ *      Shifts a word based on commands
+ *
+ * Input:
+ *      string. commands.
+ *
+ * Output:
+ *
+ *      changed string.
+ *
+ *
+ */
+
+
 #include <iostream>
 #include <string>
 #include <string.h>

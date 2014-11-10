@@ -1,3 +1,25 @@
+/* Author: Nathan Sosnovske
+ *
+ * Created: 11/9/2014
+ *
+ * Edited: 11/9/2014
+ *
+ * Files: grades.cpp
+ *
+ * Overview:
+ *      Takes an abitrary number of ints (0-5) and returns an array with the number for each int.
+ *
+ * Input:
+ *      n number of ints 0-5
+ *
+ * Output:
+ *
+ *      n number 0...n number 5
+ *
+ *
+ */
+
+
 #include <iostream>
 #include <string>
 #include <stdlib.h>

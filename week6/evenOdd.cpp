@@ -1,3 +1,24 @@
+/* Author: Nathan Sosnovske
+ *
+ * Created: 11/9/2014
+ *
+ * Edited: 11/9/2014
+ *
+ * Files: evenOdd.cpp
+ *
+ * Overview:
+ *      Calculates even and odd differences in a given array
+ *
+ * Input:
+ *      One int (length of array), n number of ints
+ *
+ * Output:
+ *
+ *      one int, difference of evens and odds
+ *
+ *
+ */
+
 #include <iostream>
 #include <limits.h>
 #include <sstream>

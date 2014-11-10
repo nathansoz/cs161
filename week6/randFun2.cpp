@@ -1,20 +1,20 @@
 /* Author: Nathan Sosnovske
  *
- * Created: 11/1/2014
+ * Created: 11/9/2014
  *
- * Edited: 11/1/2014
+ * Edited: 11/9/2014
  *
- * Files: randFun.cpp
+ * Files: randFun2.cpp
  *
  * Overview:
- *      Generates a random number within a given range (inclusive).
+ *      Generates a random number between two ints
  *
  * Input:
- *      Two ints (range)
+ *      Two ints
  *
  * Output:
  *
- *      One random number in range.
+ *      One random int
  *
  *
  */
@@ -50,7 +50,7 @@ int main()
     // I chose to drop off any characters after an alpha, which doesn't allow for perfect input validation, but works
     // pretty well.
 
-    cout << "Please enter two integers." << endl;
+    cout << "Please enter two different integers to calculate a random number." << endl;
     do {
         do {
 
