@@ -1,3 +1,6 @@
+//I ALSO INCLUDED A BONUS FILE! Check out grades.rs for a version of this in rust, mozilla's new systems
+// programming language. see:  http://en.wikipedia.org/wiki/Rust_(programming_language)
+
 /* Author: Nathan Sosnovske
  *
  * Created: 11/9/2014
@@ -18,7 +21,6 @@
  *
  *
  */
-
 
 #include <iostream>
 #include <string>

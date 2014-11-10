@@ -27,6 +27,8 @@ void ArrayAdd(int array1[], int array2[], int totalArray[], int arraySize)
 {
     for(int i = 0; i < arraySize; i++)
     {
+        //dereference the pointers to gain access to values in array
+
         *(totalArray + i) = *(array1 + i) + *(array2 + i);
     }
 

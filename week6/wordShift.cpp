@@ -34,9 +34,11 @@ void Reverse(char stringToReverse[])
 
     for(int i = 0; i < strLen; i++)
     {
+        // fill in the temporary array with the reverse string
         tmpArray[i] = stringToReverse[(strLen - 1) - i];
     }
 
+    // copy the values back
     for(int i = 0; i < strLen; i++)
     {
         stringToReverse[i] = tmpArray[i];
@@ -54,15 +56,19 @@ void ShiftLeft(char stringToShift[], long spaces)
     }
     else if(spaces < strLen)
     {
+        //for the first n characters, we put them at the last n characters of the new array
         for(int i = 0; i < spaces; i++)
         {
             tmpArray[strLen - spaces + i] = stringToShift[i];
         }
+
+        // now we fill in the rest of the array with what is left
         for(int i = 0; i < (strLen - (spaces)); i++)
         {
             tmpArray[i] = stringToShift[i + spaces];
         }
 
+        // copy the array back to the original so we don't have to return anything
         for(int i = 0; i < strLen; i++)
         {
             stringToShift[i] = tmpArray[i];
@@ -79,6 +85,8 @@ void ShiftLeft(char stringToShift[], long spaces)
 
 
 }
+
+// shifting right is just the inverse of shifting left!
 
 void ShiftRight(char stringToShift[], long spaces)
 {
@@ -166,30 +174,37 @@ int main()
         }
         else
         {
-            if(toupper(command.at(0)) == 'L') {
-                //long* space;
+            if(toupper(command.at(0)) == 'L')
+            {
+                // I tried making this input validation for ints in a string into a function but failed.
+                // I'm guessing it had something to do with pointers and garbage memory
                 char* stopped;
                 command.erase(command.begin());
                 long numSpace = strtol(command.c_str(), &stopped, 10);
-                if (stopped >= (command.c_str() + command.length())) {
+                if (stopped >= (command.c_str() + command.length()))
+                {
                     ShiftLeft(targetCString, numSpace);
                     cout << "New string: " << targetCString << endl;
                 }
-                else {
+                else
+                {
                     cout << "Invalid left number!" << endl;
                     cout << "Your string: " << targetCString << endl;
                 }
             }
-            else if (toupper(command.at(0)) == 'R') {
+            else if (toupper(command.at(0)) == 'R')
+            {
                 //long* space;
                 char* stopped;
                 command.erase(command.begin());
                 long numSpace = strtol(command.c_str(), &stopped, 10);
-                if (stopped >= (command.c_str() + command.length())) {
+                if (stopped >= (command.c_str() + command.length()))
+                {
                     ShiftRight(targetCString, numSpace);
                     cout << "New string: " << targetCString << endl;
                 }
-                else {
+                else
+                {
                     cout << "Invalid right number!" << endl;
                     cout << "Your string: " << targetCString << endl;
 

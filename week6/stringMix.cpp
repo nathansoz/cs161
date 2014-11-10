@@ -34,6 +34,8 @@ void mixString(char stringToMix[], char mixedString[])
 
     int lengthOfString = strlen(stringToMix);
     int randomNumbers[lengthOfString];
+
+    // fill the random number array with -1, so that we don't have garbage data
     fill_n(randomNumbers, lengthOfString, -1);
 
 
@@ -41,6 +43,7 @@ void mixString(char stringToMix[], char mixedString[])
     {
         int randomNumber;
 
+        // this loop repeats as long as we don't have a number that isn't in the array (and in range)
         do
         {
             randomNumber = rand_int(0, lengthOfString - 1);
@@ -49,7 +52,10 @@ void mixString(char stringToMix[], char mixedString[])
 
         mixedString[x] = stringToMix[randomNumber];
 
+        // In hindsight, this could go out of the for loop... but it works.
         mixedString[lengthOfString] = '\0';
+
+        // add our generated number to the random numbers array so it isn't repeated
         randomNumbers[x] = randomNumber;
     }
 }
@@ -89,7 +95,7 @@ void stringToCString(string input, char* output)
 
 int main()
 {
-
+    //Seed the random number generator
     srand(time(NULL));
 
     string mixMe;
@@ -100,7 +106,6 @@ int main()
 
     do
     {
-
         char mixCString[mixMe.length()];
         char mixedString[mixMe.length()];
         stringToCString(mixMe, mixCString);
@@ -109,5 +114,5 @@ int main()
         cout << "Generate another random iteration? (y/n): ";
         cin >> runAgain;
     }
-    while(runAgain == 'y');
+    while(tolower(runAgain) == 'y');
 }
