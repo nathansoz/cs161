@@ -43,7 +43,7 @@ void Reverse(char stringToReverse[])
     }
 }
 
-void ShiftLeft(char stringToShift[], int spaces)
+void ShiftLeft(char stringToShift[], long spaces)
 {
     int strLen = strlen(stringToShift);
     char tmpArray[strLen];
@@ -70,16 +70,17 @@ void ShiftLeft(char stringToShift[], int spaces)
     }
     else
     {
-        //This doesn't really need to be a recursive function, it's just the first way I thought to solve it
-        //Another way would be to change the above to else and use a while loop to reduce spaces
-        spaces -= strLen;
+        while(spaces > strLen)
+        {
+            spaces -= strLen;
+        }
         ShiftLeft(stringToShift, spaces);
     }
 
 
 }
 
-void ShiftRight(char stringToShift[], int spaces)
+void ShiftRight(char stringToShift[], long spaces)
 {
     int strLen = strlen(stringToShift);
 
@@ -93,9 +94,10 @@ void ShiftRight(char stringToShift[], int spaces)
     }
     else
     {
-        //This doesn't really need to be a recursive function, it's just the first way I thought to solve it
-        //Another way would be to change the above to else and use a while loop to reduce spaces
-        spaces -= strLen;
+        while(spaces > strLen)
+        {
+            spaces -= strLen;
+        }
         ShiftRight(stringToShift, spaces);
     }
 }
@@ -165,7 +167,7 @@ int main()
         else
         {
             if(toupper(command.at(0)) == 'L') {
-                long* space;
+                //long* space;
                 char* stopped;
                 command.erase(command.begin());
                 long numSpace = strtol(command.c_str(), &stopped, 10);
@@ -179,7 +181,7 @@ int main()
                 }
             }
             else if (toupper(command.at(0)) == 'R') {
-                long* space;
+                //long* space;
                 char* stopped;
                 command.erase(command.begin());
                 long numSpace = strtol(command.c_str(), &stopped, 10);
