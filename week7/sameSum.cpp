@@ -7,7 +7,8 @@ bool sameSum(int array[10][10], int dimension)
 {
     int authoritativeRowTotal = 0;
     int authoritativeColTotal = 0;
-    int diagTotal = 0;
+    int diagLeftTotal = 0;
+    int diagRightTotal =0;
 
     for(int col = 0; col < dimension; col++)
     {
@@ -37,6 +38,9 @@ bool sameSum(int array[10][10], int dimension)
         }
     }
 
+    // Assuming all of our row sums match, we move on to columns
+    // This looks like the row one, just reversed for loops
+
     for(int row = 0; row < dimension; row++)
     {
         int colTotal = 0;
@@ -52,6 +56,8 @@ bool sameSum(int array[10][10], int dimension)
                 colTotal += array[row][col];
             }
         }
+
+
         if((row == 0) && (authoritativeColTotal != authoritativeRowTotal))
         {
             return false;
@@ -65,7 +71,30 @@ bool sameSum(int array[10][10], int dimension)
 
     }
 
-    return true;
+    //We can grab the diagonal values for our comparison below
+    for(int row = 0, col = 0; row < dimension, col < dimension; row++, col++)
+    {
+        diagLeftTotal += array[row][col];
+    }
+
+    for(int row = (dimension - 1), col = 0; row < 0, col < dimension; row--, col++)
+    {
+        diagRightTotal += array[row][col];
+    }
+
+    if(diagLeftTotal == diagRightTotal)
+    {
+        if(authoritativeColTotal == diagLeftTotal)
+        {
+            if(authoritativeColTotal == authoritativeRowTotal)
+            {
+                //Only return true if everything equals everything
+                return true;
+            }
+        }
+    }
+    //our default is to return false if something goes wrong
+    return false;
 }
 
 void initArray(int array[10][10])
