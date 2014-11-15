@@ -58,14 +58,14 @@ bool ValidInput(char *argv[], int numbers[])
 
             if(numbers[i - 1] <= 0)
             {
-                cout << "Invalid num at argument " << i << cout << "!" << endl;
+                cout << "Invalid num at argument " << i << "!" << endl;
                 cout << "Numbers must be positive." << endl;
                 validNumbers = false;
             }
         }
         else
         {
-            cout << "Invalid num at argument " << i << "i" << endl;
+            cout << "Invalid num at argument " << i << "!" << endl;
             validNumbers = false;
         }
     }
