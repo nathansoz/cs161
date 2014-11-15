@@ -55,12 +55,17 @@ bool ValidInput(char *argv[], int numbers[])
         if(strtol(argv[i], &endPtr, 10))
         {
             numbers[i -1] = static_cast<int>(strtol(argv[i], &endPtr, 10));
+
+            if(numbers[i - 1] <= 0)
+            {
+                cout << "Invalid num at argument " << i << cout << "!" << endl;
+                cout << "Numbers must be positive." << endl;
+                validNumbers = false;
+            }
         }
         else
         {
-            cout << "Invalid num at argument ";
-            cout << i;
-            cout << "!";
+            cout << "Invalid num at argument " << i << "i" << endl;
             validNumbers = false;
         }
     }
