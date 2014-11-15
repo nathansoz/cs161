@@ -198,7 +198,6 @@ int main()
             }
             else if (toupper(command.at(0)) == 'R')
             {
-                //long* space;
                 char* stopped;
                 command.erase(command.begin());
                 long numSpace = strtol(command.c_str(), &stopped, 10);
