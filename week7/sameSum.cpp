@@ -212,11 +212,11 @@ int main()
     bool test = sameSum(userArray, dimension);
     if(test)
     {
-        cout << "All the sums match.";
+        cout << "All the sums match." << endl;
     }
     else
     {
-        cout << "The sums do not match!";
+        cout << "The sums do not match!" << endl;
     }
 
 }
