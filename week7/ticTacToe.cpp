@@ -185,6 +185,9 @@ void GameLoop(int games, int &playerXScore, int &playerOScore)
     {
         bool playerWon = false;
         int moves = 0;
+
+        cout << endl << "New game!" << endl;
+        cout << "Player " << playerToMove << " to move." << endl;
         InitializeBoard(board);
         PrintBoard(board);
 
@@ -249,5 +252,23 @@ int main(int argc, char* argv[])
     else
     {
         cout << "Invalid number of arguments.";
+        exit(1);
     }
+
+    cout << "Player X's score is: " << playerXScore << " and player O's score is " << playerOScore << "." << endl;
+    if(playerXScore > playerOScore)
+    {
+        cout << "Player X wins!" << endl;
+    }
+    else if(playerOScore > playerXScore)
+    {
+        cout << "Player O wins!" << endl;
+    }
+    else
+    {
+        cout << "Player X and player O tied!" << endl;
+    }
+
+    return 0;
+
 }
