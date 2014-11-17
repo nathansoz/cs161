@@ -179,12 +179,26 @@ void GameLoop(int games, int &playerXScore, int &playerOScore)
 {
     int gameCount = 0;
     char board[3][3];
-    char playerToMove = 'X';
+    char playerWithNextFirstMove = 'X';
+    char playerToMove;
 
     do
     {
         bool playerWon = false;
         int moves = 0;
+        playerToMove = playerWithNextFirstMove;
+
+
+        if(playerWithNextFirstMove == 'X')
+        {
+            playerWithNextFirstMove = 'O';
+        }
+        else
+        {
+            playerWithNextFirstMove = 'X';
+        }
+
+
 
         cout << endl << "New game!" << endl;
         cout << "Player " << playerToMove << " to move." << endl;
