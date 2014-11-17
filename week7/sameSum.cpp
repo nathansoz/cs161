@@ -1,3 +1,24 @@
+/* Author: Nathan Sosnovske
+ *
+ * Created: 11/16/2014
+ *
+ * Edited: 11/16/2014
+ *
+ * Files: sameSum.cpp
+ *
+ * Overview:
+ *      Checks to see if the sum of rows, cols, and diags matches.
+ *
+ * Input:
+ *      2d array.
+ *
+ * Output:
+ *
+ *      Result of sum test.
+ *
+ *
+ */
+
 #include <iostream>
 #include <stdlib.h>
 
@@ -5,11 +26,13 @@ using namespace std;
 
 bool sameSum(int array[10][10], int dimension)
 {
+    // our authoritative totals survive the for loops so we can do a final comparison
     int authoritativeRowTotal = 0;
     int authoritativeColTotal = 0;
     int diagLeftTotal = 0;
     int diagRightTotal =0;
 
+    //I tried to be as efficient as possible with these loops. I broke out as soon as anything didn't match.
     for(int col = 0; col < dimension; col++)
     {
         int rowTotal = 0;
@@ -108,6 +131,7 @@ void initArray(int array[10][10])
     }
 }
 
+//This function is mostly so that I don't have the const that c_str makes.
 void stringToCString(string input, char* output)
 {
     for(int x = 0; x < input.length(); x++)
@@ -136,12 +160,9 @@ int main()
 
             string userInput;
             cout << "Row " << i << ": ";
-            //userInput = "1 2 3 4 5";
             getline(cin, userInput);
 
-
             char *userInputCString;
-
             userInputCString = new char[userInput.length() + 1];
             stringToCString(userInput, userInputCString);
             char *stopPointer = userInputCString;
@@ -151,13 +172,14 @@ int main()
 
 
                 if (j < dimension - 1) {
-                    userArray[j][i] = possibleInt;
+                    userArray[j][i] = static_cast<int>(possibleInt);
                     if (*stopPointer == ' ')
                     {
                         stopPointer++;
                     }
                     else
                     {
+                        //We had no input validation instructions...
                         cout << "Row not long enough. Assuming 0's for rest of row." << endl;
                         break;
                     }
@@ -168,10 +190,11 @@ int main()
                 else {
                     if(*stopPointer != '\0')
                     {
+                        //Drop off too long input
                         cout << "Some elements dropped off due to non same-length input!" << endl;
                     }
 
-                    userArray[j][i] = possibleInt;
+                    userArray[j][i] = static_cast<int>(possibleInt);
                     break;
                 }
             }
@@ -189,11 +212,11 @@ int main()
     bool test = sameSum(userArray, dimension);
     if(test)
     {
-        cout << "The rows are the same.";
+        cout << "All the sums match.";
     }
     else
     {
-        cout << "The rows are different.";
+        cout << "The sums do not match!";
     }
 
 }

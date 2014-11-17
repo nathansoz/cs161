@@ -1,8 +1,32 @@
+/* Author: Nathan Sosnovske
+ *
+ * Created: 11/16/2014
+ *
+ * Edited: 11/16/2014
+ *
+ * Files: ticTacToe.cpp
+ *
+ * Overview:
+ *      A game of tic tac toe
+ *
+ * Input:
+ *      number of games on the command line
+ *      moves
+ *
+ * Output:
+ *
+ *      board and winner of each game
+ *      overall winner
+ *
+ *
+ */
+
 #include <iostream>
 #include <stdlib.h>
 
 using namespace std;
 
+//checks to see if a move has already been made
 bool MoveMade(int row, int col, char board[3][3])
 {
     if(board[row][col] == '.')
@@ -15,6 +39,7 @@ bool MoveMade(int row, int col, char board[3][3])
     }
 }
 
+//checks to see if a player has won
 bool PlayerWon(char board[3][3], int &playerXScore, int &playerOScore)
 {
     for(int i = 0; i < 3; i++)
@@ -83,6 +108,7 @@ bool PlayerWon(char board[3][3], int &playerXScore, int &playerOScore)
 
 }
 
+//besides the game loop, this is the most important part. This parses user input and makes sure it is valid
 void UserMove(char player, char board[3][3])
 {
     string userInput;
@@ -91,7 +117,7 @@ void UserMove(char player, char board[3][3])
     {
         int row;
         int col;
-
+        cout << "It is player " << player << "'s move." << endl;
         cout << "Please enter the coordinates for your move, separated by a space(row, column): ";
 
         getline(cin, userInput);
@@ -147,6 +173,7 @@ void UserMove(char player, char board[3][3])
 
 }
 
+//We need something to track unused squares that gives console visibility.
 void InitializeBoard(char board[3][3])
 {
     for(int row = 0; row < 3; row++)
@@ -158,6 +185,7 @@ void InitializeBoard(char board[3][3])
     }
 }
 
+//Simple function to print board and grid to screen
 void PrintBoard(char board[3][3])
 {
     cout << "  0 1 2" << endl;
@@ -175,6 +203,8 @@ void PrintBoard(char board[3][3])
 
 }
 
+//This gameloop is called by main and only exits after all games have been played. We leave checking the total scores
+//to main.
 void GameLoop(int games, int &playerXScore, int &playerOScore)
 {
     int gameCount = 0;
@@ -201,7 +231,7 @@ void GameLoop(int games, int &playerXScore, int &playerOScore)
 
 
         cout << endl << "New game!" << endl;
-        cout << "Player " << playerToMove << " to move." << endl;
+        cout << "Player " << playerToMove << " to move first." << endl;
         InitializeBoard(board);
         PrintBoard(board);
 
@@ -256,11 +286,12 @@ int main(int argc, char* argv[])
 
     if(argc == 1)
     {
+        //Call our game loop to only play one game, if we had no arguments.
         GameLoop(1, playerXScore, playerOScore);
     }
     else if(argc == 2)
     {
-        //validate input here
+        //Play the game!
         GameLoop(atoi(argv[1]), playerXScore, playerOScore);
     }
     else
@@ -269,7 +300,8 @@ int main(int argc, char* argv[])
         exit(1);
     }
 
-    cout << "Player X's score is: " << playerXScore << " and player O's score is " << playerOScore << "." << endl;
+    cout << "Player X's score is: " << playerXScore << endl;
+    cout << "Player O's score is: " << playerOScore << endl;
     if(playerXScore > playerOScore)
     {
         cout << "Player X wins!" << endl;
