@@ -57,9 +57,14 @@ vector<int> GetMode(vector<int> inputValues)
         }
         else
         {
-
             currentNumber = inputValues.at(i);
             count = 1;
+
+            //Handle maxNum of 1
+            if(count == maxNum)
+            {
+                modes.push_back(currentNumber);
+            }
         }
     }
 
