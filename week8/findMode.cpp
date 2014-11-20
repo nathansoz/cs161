@@ -1,10 +1,11 @@
+#include <algorithm>
 #include <climits>
 #include <iostream>
 #include <string>
 #include <string.h>
 #include <stdlib.h>
 #include <vector>
-#include <bits/stl_algo.h>
+
 
 using namespace std;
 
@@ -14,15 +15,18 @@ vector<int> GetMode(vector<int> inputValues)
     int maxNum = 0;
     int currentNumber = inputValues.at(0);
 
+    sort(inputValues.begin(), inputValues.end());
+
     vector<int> modes;
 
     for(int i = 0; i < inputValues.size(); i++)
     {
+
         if(currentNumber == inputValues.at(i))
         {
             count++;
 
-            if(i == (inputValues.size() - 1) && count > maxNum)
+            if(count > maxNum)
             {
                 maxNum = count;
             }
@@ -46,14 +50,14 @@ vector<int> GetMode(vector<int> inputValues)
         if(currentNumber == inputValues.at(i))
         {
             count++;
-            if(i == (inputValues.size() - 1) && count == maxNum)
+            if(count == maxNum)
             {
                 modes.push_back(currentNumber);
             }
         }
-        else if(count == maxNum)
+        else
         {
-            modes.push_back(currentNumber);
+
             currentNumber = inputValues.at(i);
             count = 1;
         }
@@ -96,8 +100,8 @@ int main()
         int numberToAppend;
 
         cout << "Number " << numberCounter << ": ";
-        //getline(cin, userInput);
-        userInput = "5";
+        getline(cin, userInput);
+
         if(userInput.size() == 0)
         {
             break;
