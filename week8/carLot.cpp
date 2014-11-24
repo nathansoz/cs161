@@ -1,3 +1,27 @@
+/* Author: Nathan Sosnovske
+ *
+ * Created: 11/23/2014
+ *
+ * Edited: 11/23/2014
+ *
+ * Files: carLot.cpp
+ *
+ * Overview:
+ *      Simultates a carlot inventory
+ *
+ * Input:
+ *      - Asks what the program should do then
+ *      -- Inputs a new car OR
+ *      -- Prints out the inventory OR
+ *      -- Prints out the profit for a given month/year
+ *
+ * Output:
+ *
+ *      See above
+ *
+ *
+ */
+
 #include <iomanip>
 #include <iostream>
 #include <limits.h>

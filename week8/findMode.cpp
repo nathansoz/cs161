@@ -1,3 +1,24 @@
+/* Author: Nathan Sosnovske
+ *
+ * Created: 11/23/2014
+ *
+ * Edited: 11/23/2014
+ *
+ * Files: findMode.cpp
+ *
+ * Overview:
+ *      Calculates the mode
+ *
+ * Input:
+ *      Numbers (int)
+ *
+ * Output:
+ *
+ *      The mode(s)
+ *
+ *
+ */
+
 #include <algorithm>
 #include <climits>
 #include <iostream>
@@ -15,6 +36,12 @@ vector<int> GetMode(vector<int> inputValues)
     int maxNum = 0;
     int currentNumber = inputValues.at(0);
 
+    //if we've gotten to this point we have a mode... so we should print that we have one.
+    cout << "Mode(s): " << endl;
+
+    //we need a sorted array to keep track of arbitrary values
+    //the only other way that I could think to keep track of this would be a
+    //huge array that we use as a counter.
     sort(inputValues.begin(), inputValues.end());
 
     vector<int> modes;
@@ -28,6 +55,7 @@ vector<int> GetMode(vector<int> inputValues)
 
             if(count > maxNum)
             {
+                //This pushes the maxnum to be a greater number if need be...
                 maxNum = count;
             }
         }
@@ -45,6 +73,7 @@ vector<int> GetMode(vector<int> inputValues)
     count = 0;
     currentNumber = inputValues.at(0);
 
+//This is where we actually place values in our modes array
     for(int i = 0; i < inputValues.size(); i++)
     {
         if(currentNumber == inputValues.at(i))
@@ -71,6 +100,7 @@ vector<int> GetMode(vector<int> inputValues)
     return modes;
 }
 
+//A function that makes sure that we have a valid integer in a string
 bool SafeStoI(string input, int &convertedValue)
 {
     char* stopVal;
@@ -83,6 +113,7 @@ bool SafeStoI(string input, int &convertedValue)
     }
     else if(userNumber > INT_MAX)
     {
+        //Strtol is great, but we want to make sure that the number is in range
         cout << "number too big." << endl;
         return false;
     }
@@ -134,5 +165,9 @@ int main()
         {
             cout << modes.at(i) << endl;
         }
+    }
+    else
+    {
+        cout << "No numbers entered. No mode calculated." << endl;
     }
 }

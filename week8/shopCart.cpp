@@ -1,3 +1,27 @@
+/* Author: Nathan Sosnovske
+ *
+ * Created: 11/16/2014
+ *
+ * Edited: 11/16/2014
+ *
+ * Files: shopCart.cpp
+ *
+ * Overview:
+ *      Simulates a shopping cart
+ *
+ * Input:
+ *      Asks for a menu option and then:
+ *      -- Allows user to input an item
+ *      -- Allows user to print out items
+ *      -- Gives the total
+ *
+ * Output:
+ *
+ *      See above
+ *
+ *
+ */
+
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -5,6 +29,8 @@
 
 using namespace std;
 
+//basic struct... though I wonder why we can't put functions in it.
+//the only difference between a struct and a class is if the members are private/public by default...
 struct Item
 {
     string name;
@@ -57,12 +83,13 @@ void TotalPrice(Item items[], int &cartTotal)
         total += (items[i].price * items[i].quantity);
     }
 
-    cout << endl << "The cart total is: $" << fixed << setprecision(2) << total << endl;
+    cout << endl << "The cart total is: $" << fixed << setprecision(2) << total << endl << endl;
 }
 
 int main()
 {
     int cartTotal = 0;
+    //we were told that there would be max 100 items. I made the array able to hold 101 items.
     Item items[100];
 
     do
@@ -78,6 +105,9 @@ int main()
         cout << "Choice [1-4]: ";
 
         cin >> choice;
+
+        //this is probably the best use for a switch statement.
+        //I tried to keep most of the program logic outside of the main block
 
         switch(choice)
         {
