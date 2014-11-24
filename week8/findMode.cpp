@@ -170,4 +170,6 @@ int main()
     {
         cout << "No numbers entered. No mode calculated." << endl;
     }
+
+    return 0;
 }
