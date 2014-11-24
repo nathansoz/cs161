@@ -80,7 +80,20 @@ void AddCar(vector<Car> &cars)
     cout << "Enter the model of the car: ";
     getline(cin, tmpCar.model);
     cout << "Enter the year of the car: ";
-    getline(cin, modelYearString);
+    do
+    {
+        getline(cin, modelYearString);
+        if(ValidInt(modelYearString, tmpCar.year))
+        {
+            break;
+        }
+        else
+        {
+            cout << "Invalid int!" << endl;
+            continue;
+        }
+    }
+    while(true);
     do
     {
         cout << "Enter the purchase price of the car: ";
@@ -121,9 +134,6 @@ void AddCar(vector<Car> &cars)
             }
         }
         while(true);
-
-        cout << tmpCar.datePurchased.month << endl;
-        cout << tmpCar.datePurchased.day << endl;
 
         if(ValidMonthDayCombo(tmpCar.datePurchased.month, tmpCar.datePurchased.day))
         {
