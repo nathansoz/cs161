@@ -76,27 +76,9 @@ class ShoppingCart
         void TotalPrice();
 };
 
-//TODO: Separate input gathering from adding the item :(
-void ShoppingCart::AddItem(Item)
+void ShoppingCart::AddItem(Item itemToAdd)
 {
-    //clear the input buffer
-    cin.ignore(1000, '\n');
-
-    string itemName;
-    string itemPrice;
-    int itemQuantity;
-
-    cout << "Please enter the name of the item: ";
-    getline(cin, itemName);
-    cout << "Please enter the price of the item: ";
-    getline(cin, itemPrice);
-    cout << "Please enter how many of this item you would like: ";
-    cin >> itemQuantity;
-
-    Item newItem(itemName, strtod(itemPrice.c_str(), NULL), itemQuantity);
-
-     cart.push_back(newItem);
-
+    cart.push_back(itemToAdd);
 }
 
 
@@ -130,8 +112,8 @@ void ShoppingCart::TotalPrice()
 int main()
 {
     int cartTotal = 0;
+    ShoppingCart cart;
     //we were told that there would be max 100 items. I made the array able to hold 101 items.
-    Item items[100];
 
     do
     {
@@ -147,19 +129,36 @@ int main()
 
         cin >> choice;
 
-        //this is probably the best use for a switch statement.
-        //I tried to keep most of the program logic outside of the main block
+
 
         switch(choice)
         {
+            //Braces are needed on this case statement to force variables to be in/out of scope
             case 1:
-                AddItem(items, cartTotal);
+            {
+                //clear the input buffer
+                cin.ignore(1000, '\n');
+
+                string itemName;
+                string itemPrice;
+                int itemQuantity;
+
+                cout << "Please enter the name of the item: ";
+                getline(cin, itemName);
+                cout << "Please enter the price of the item: ";
+                getline(cin, itemPrice);
+                cout << "Please enter how many of this item you would like: ";
+                cin >> itemQuantity;
+
+                Item newItem(itemName, strtod(itemPrice.c_str(), NULL), itemQuantity);
+                cart.AddItem(newItem);
                 break;
+            }
             case 2:
-                ListContents(items, cartTotal);
+                cart.ListItems();
                 break;
             case 3:
-                TotalPrice(items, cartTotal);
+                cart.TotalPrice();
                 break;
             case 4:
                 exit(0);
