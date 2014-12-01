@@ -1,10 +1,10 @@
 /* Author: Nathan Sosnovske
  *
- * Created: 11/23/2014
+ * Created: 11/30/2014
  *
- * Edited: 11/23/2014
+ * Edited: 11/30/2014
  *
- * Files: carLot.cpp
+ * Files: carLot2.cpp
  *
  * Overview:
  *      Simultates a carlot inventory
@@ -59,7 +59,7 @@ class Date
             }
 
         }
-
+        //getters
         int GetMonth()
         {
             return month;
@@ -73,6 +73,9 @@ class Date
             return year;
         }
 
+        //quick check to make sure that the date is valid.
+        //really all this is doing is making sure the month isn't set to 0, which would indicate that
+        //the validdaymonthcombo function in the constructor flagged a bad date
         bool DateValid()
         {
             if(month > 0 && month < 13)
@@ -124,6 +127,7 @@ class Car
             isSold = IsSold;
         }
 
+        //getters
         string GetMake() { return make; }
         string GetModel() { return model; }
         int GetYear() { return year; }
@@ -133,6 +137,7 @@ class Car
         Date GetDateSold() { return dateSold; }
         bool GetIsSold() { return isSold; }
 
+        //we can use this later to have a cleaner getprofit function
         double GetProfit()
         {
             if(isSold)
@@ -169,6 +174,8 @@ bool ValidInt(string convert, int&);
 //This is a somewhat meaty function and could probably benefit from some refactoring.
 void CarLot::AddCar()
 {
+    //There are a lot of things in this function. I'm mostly using them for input validation...
+    //It might be better to organize these by data type? I'm not really sure...
     string make;
     string model;
     int year;
@@ -286,6 +293,10 @@ void CarLot::AddCar()
         {
             purchaseDate = tmpDate;
             break;
+        }
+        else
+        {
+            cout << "Invalid date!" << endl;
         }
     }
     while(true);
@@ -543,7 +554,7 @@ void CarLot::GetMonthProfit()
             //We will also use carsSold to verify that something was actually sold in the time period
 
             carsSold++;
-            profit += (cars.at(i).GetSalePrice() - cars.at(i).GetPurchasePrice());
+            profit += cars.at(i).GetProfit();
         }
     }
 
@@ -560,7 +571,7 @@ void CarLot::GetMonthProfit()
 
 }
 
-//Loops through the inventory and prints formatted lists of what it contains. This is mostly formatting
+//Loops through the inventory in the CarLot and prints formatted lists of what it contains. This is mostly formatting
 //junk... there isn't a lot of exciting logic here.
 void CarLot::ListCurrentInv()
 {

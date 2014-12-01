@@ -1,10 +1,10 @@
 /* Author: Nathan Sosnovske
  *
- * Created: 11/16/2014
+ * Created: 11/30/2014
  *
- * Edited: 11/16/2014
+ * Edited: 11/30/2014
  *
- * Files: shopCart.cpp
+ * Files: shopCart2.cpp
  *
  * Overview:
  *      Simulates a shopping cart
@@ -30,8 +30,6 @@
 
 using namespace std;
 
-//basic struct... though I wonder why we can't put functions in it.
-//the only difference between a struct and a class is if the members are private/public by default...
 class Item
 {
     private:
@@ -78,6 +76,8 @@ class ShoppingCart
 
 void ShoppingCart::AddItem(Item itemToAdd)
 {
+    //Here we are defining our item elsewhere and adding it. This is in contrast to the
+    //add car method of carLot2
     cart.push_back(itemToAdd);
 }
 

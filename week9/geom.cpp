@@ -1,3 +1,25 @@
+/* Author: Nathan Sosnovske
+ *
+ * Created: 11/30/2014
+ *
+ * Edited: 11/30/2014
+ *
+ * Files: geom.cpp
+ *
+ * Overview:
+ *      Takes two points and calculates the distance
+ *
+ * Input:
+ *      - Asks for two points, separated by spaces
+
+ *
+ * Output:
+ *
+ *      - Distance and slope of two points
+ *
+ *
+ */
+
 #include <iomanip>
 #include <iostream>
 #include <math.h>
@@ -52,7 +74,7 @@ class LineSegment
             p2 = P2;
         }
 
-        //we don't define setters for this class, so it would technically be more efficent to calculate
+        //we don't define setters for this class, so it would technically be more efficient to calculate
         //length in our constructor and then store it as a property...
         double Length()
         {
