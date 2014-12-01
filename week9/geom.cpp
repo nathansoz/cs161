@@ -78,14 +78,9 @@ class LineSegment
         //length in our constructor and then store it as a property...
         double Length()
         {
-            if (p1.GetX() == p2.GetX() && p1.GetY() == p2.GetY())
-            {
-                return 0;
-            }
-            else
-            {
-                return p1.DistanceTo(p2);
-            }
+
+            return p1.DistanceTo(p2);
+
         }
 
         double Slope()
@@ -125,7 +120,15 @@ int main()
         }
         else
         {
-            cout << "The slope of the line is " << line.Slope() << endl;
+            //We weren't asked to check for this, but i figured i would
+            if(isnan(line.Slope()))
+            {
+                cout << "The line has no slope because the points are the same." << endl;
+            }
+            else
+            {
+                cout << "The slope of the line is " << line.Slope() << endl;
+            }
         }
 
         cout << "Would you like to enter new points? (y/n): ";
