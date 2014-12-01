@@ -78,7 +78,14 @@ class LineSegment
         //length in our constructor and then store it as a property...
         double Length()
         {
-            return p1.DistanceTo(p2);
+            if (p1.GetX() == p2.GetX() && p1.GetY() == p2.GetY())
+            {
+                return 0;
+            }
+            else
+            {
+                return p1.DistanceTo(p2);
+            }
         }
 
         double Slope()
